@@ -3,19 +3,34 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --gap: clamp(1.25rem, 0.5rem + 3.75vw, 5rem);
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.mapCont {
+  width: 100%;
+  height: 700px;
+  border-radius: 25px;
+  overflow: hidden; /* Убедитесь, что содержимое не выходит за пределы */
+  box-shadow: 0 0 40px 0px rgba(237, 188, 90, 0.9); /* Тень */
+  background-color: rgba(0, 0, 0, 0.5); /* Затемнение */
+  position: relative;
+  z-index: 1;
+}
+
+.mapCont::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 25px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1; /* Убедитесь, что слой затемнения находится под картой */
+  pointer-events: none;
 }

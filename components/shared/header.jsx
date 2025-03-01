@@ -84,7 +84,7 @@ const Header = ({ className }) => {
       <Link href="/" className="flex items-center gap-[10px]">
         <Image
           className="cursor-pointer max-lg:w-[40px] max-lg:h-[40px]"
-          src="/logo.svg"
+          src="/Logo.svg"
           alt="logo"
           width={200}
           height={40}

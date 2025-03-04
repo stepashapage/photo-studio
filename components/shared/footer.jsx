@@ -13,9 +13,9 @@ export const Footer = () => {
       </div>
 
       <menu className="flex gap-[42px]">
-        <Link href="/">О нас</Link>
-        <Link href="/">Каталог</Link>
-        <Link href="/">Портфолио</Link>
+        <Link href="/About">О нас</Link>
+        <Link href="/Catalog">Каталог</Link>
+        <Link href="/Portfolio">Портфолио</Link>
       </menu>
 
       <ul className="flex gap-[22px]">

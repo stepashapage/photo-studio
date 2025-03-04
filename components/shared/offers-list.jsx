@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 export const listOffers = [
@@ -76,15 +77,17 @@ export const OffersList = () => {
               </div>
             ))}
           </div>
-          <button
-            className={
-              item.id === 1
-                ? "w-[220px] text-[#fff] rounded-[60px] px-[59px] py-[17px] border-[2px] border-[#000] border-opacity-[0.5] "
-                : "w-[220px] text-[#fff] rounded-[60px] px-[59px] py-[17px] border-[2px] border-[#C3BE10] "
-            }
-          >
-            Подробнее
-          </button>
+          <Link href="/Catalog">
+            <button
+              className={
+                item.id === 1
+                  ? "w-[220px] text-[#fff] rounded-[60px] px-[59px] py-[17px] border-[2px] border-[#000] border-opacity-[0.5] "
+                  : "w-[220px] text-[#fff] rounded-[60px] px-[59px] py-[17px] border-[2px] border-[#C3BE10] "
+              }
+            >
+              Подробнее
+            </button>
+          </Link>
         </div>
       ))}
     </div>

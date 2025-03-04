@@ -33,6 +33,10 @@ const Contact = () => {
     });
   };
 
+  const handleButtonClick = () => {
+    setTimeout(() => alert("Сообщение отправлено"), 1000);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     emailjs
@@ -182,6 +186,7 @@ const Contact = () => {
             <button
               type="submit"
               className="mt-[50px] p-[15px] bg-[#EDBC5A] text-[#1A1717] font-regular text-[20px] rounded-[10px] w-full"
+              onClick={handleButtonClick}
             >
               Отправить сообщение
             </button>

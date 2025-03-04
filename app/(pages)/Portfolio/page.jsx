@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import CircleBackground from "../../../components/ui/circleBackground";
 
-export const portfolioList = [
+const portfolioList = [
   {
     title: "14+",
     description: "оценок в соц. сетях",
@@ -21,7 +21,7 @@ export const portfolioList = [
   },
 ];
 
-export const portfolioList2 = [
+const portfolioList2 = [
   {
     id: 0,
     title: "Новогодние сувениры",

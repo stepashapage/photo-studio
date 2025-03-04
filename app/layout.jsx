@@ -1,7 +1,7 @@
 import { Poppins } from "next/font/google";
 import Header from "../components/shared/header";
 import "./globals.css";
-import { Footer } from "@/components/shared/footer";
+import { Footer } from "../components/shared/footer";
 import Script from "next/script";
 
 const geistPoppins = Poppins({

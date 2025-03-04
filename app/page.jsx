@@ -1,17 +1,17 @@
 import React from "react";
-import CircleBackground from "@/components/ui/circleBackground";
-import { Description } from "@/components/ui/desc";
-import { Title } from "@/components/ui/title";
-import { AdvantagesList } from "@/components/shared/advantages-list";
-import { CommentsList } from "@/components/shared/comments-list";
-import { MomentsList } from "@/components/shared/moments-list";
-import { OffersList } from "@/components/shared/offers-list";
+import CircleBackground from "../components/ui/circleBackground";
+import { Description } from "../components/ui/desc";
+import { Title } from "../components/ui/title";
+import { AdvantagesList } from "../components/shared/advantages-list";
+import { CommentsList } from "../components/shared/comments-list";
+import { MomentsList } from "../components/shared/moments-list";
+import { OffersList } from "../components/shared/offers-list";
 import Image from "next/image";
-import { AnimateSection } from "@/components/shared/animateSection";
+import { AnimateSection } from "../components/shared/animateSection";
 
 export default function Home() {
   return (
-    <main className="max-w-[1600px] mx-auto px-[20px] z-[1] pt-[100px]">
+    <main className="max-w-[1600px] mx-auto px-[20px] z-[1] pt-[75px]">
       <section className="relative w-full flex flex-col gap-[250px]">
         <CircleBackground className="right-[-15%] top-[-50px]" />
         <CircleBackground className="left-[-15%] top-[250px]" />

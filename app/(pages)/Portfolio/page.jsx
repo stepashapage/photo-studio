@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import CircleBackground from "@/components/ui/circleBackground";
+import CircleBackground from "../../../components/ui/circleBackground";
 
 export const portfolioList = [
   {
@@ -80,7 +80,7 @@ export const portfolioList2 = [
 
 const Portfolio = () => {
   return (
-    <main className="max-w-[1600px] mx-auto px-[20px] z-[1] pt-[100px]">
+    <main className="max-w-[1600px] mx-auto px-[20px] z-[1] pt-[50px]">
       <section className="relative w-full grid grid-cols-3 gap-[26px]">
         <CircleBackground className="top-[70%] left-[-25%]" />
         <CircleBackground className="top-[20%] right-[-25%]" />

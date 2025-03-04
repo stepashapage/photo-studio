@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Description } from "@/components/ui/desc";
+import { Description } from "../ui/desc";
 
 export const listAdvantages = [
   {

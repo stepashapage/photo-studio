@@ -2,16 +2,16 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Description } from "@/components/ui/desc";
-import { Title } from "@/components/ui/title";
+import { Description } from "../../../components/ui/desc";
+import { Title } from "../../../components/ui/title";
 import Image from "next/image";
 import Link from "next/link";
-import CircleBackground from "@/components/ui/circleBackground";
-import { MapLocal } from "@/components/shared/mapLocal";
+import CircleBackground from "../../../components/ui/circleBackground";
+import { MapLocal } from "../../../components/shared/mapLocal";
 
 const About = () => {
   return (
-    <main className="max-w-[1600px] mx-auto px-[20px] z-[1] pt-[100px]">
+    <main className="max-w-[1600px] mx-auto px-[20px] z-[1] pt-[50px]">
       <section className="relative w-full flex flex-col gap-[250px]">
         {/* Анимация для заголовка */}
         <motion.div

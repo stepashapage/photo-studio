@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { MapLocal } from "@/components/shared/mapLocal";
+import { MapLocal } from "../../..//components/shared/mapLocal";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Description } from "@/components/ui/desc";
+import { Description } from "../../../components/ui/desc";
 import {
   Phone,
   Mail,

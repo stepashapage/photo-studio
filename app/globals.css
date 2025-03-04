@@ -11,6 +11,47 @@
   }
 }
 
+/* Добавьте это в ваш CSS файл или в глобальные стили */
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: start;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  display: none; /* Скрываем стандартный чекбокс */
+}
+
+.custom-checkbox label span {
+  position: relative;
+}
+
+.custom-checkbox label span::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid rgba(255, 255, 255, 0.8); */
+  border-radius: 4px;
+  background: transparent;
+  transition: background 0.3s;
+}
+
+.custom-checkbox input:checked + label span::before {
+  background: black; /* Черный фон при выборе */
+}
+
+.custom-checkbox input:checked + label span::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+}
+
 .mapCont {
   width: 100%;
   height: 700px;
@@ -33,4 +74,36 @@
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 1; /* Убедитесь, что слой затемнения находится под картой */
   pointer-events: none;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 7px 15px;
+  background-color: #f3f4f6;
+  color: #333333;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pagination .active a {
+  background-color: #edbc5a;
+  color: #fff;
+}
+
+.pagination .disabled a {
+  cursor: default;
+  color: #ccc;
 }

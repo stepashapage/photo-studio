@@ -2,8 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Description } from "@/components/ui/desc";
-import { Title } from "@/components/ui/title";
+import { Description } from "../ui/desc";
+import { Title } from "../ui/title";
 import Image from "next/image";
 
 export const AnimateSection = () => {

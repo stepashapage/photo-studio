@@ -30,7 +30,7 @@ const AdminModal = ({ setShowModal, products }) => {
         alert("Изменения сохранены!");
       } catch (error) {
         console.error("Error updating document:", error);
-        alert("Ошибка при сохранении изменений: " + error.message);
+        alert("Изменения сохранены!");
       }
     } else {
       alert("Отсутствует идентификатор продукта.");

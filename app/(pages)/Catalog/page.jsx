@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { db } from "../../../firebase";
+import { db, auth } from "../../../firebase";
 import { collection, getDocs } from "firebase/firestore";
 import ProductContainer from "../../../components/shared/ProductContainer";
 import SidebarFilter from "../../../components/shared/SidebarFilter";
 import ReactPaginate from "react-paginate";
 import CircleBackground from "../../../components/ui/circleBackground";
-import AdminModal from "../../../components/shared/AdminModal"; // Импортируем модальное окно админ-панели
+import AdminModal from "../../../components/shared/AdminModal";
+import { onAuthStateChanged } from "firebase/auth";
 
 const CatalogPage = () => {
   const [products, setProducts] = useState([]);
@@ -15,7 +16,8 @@ const CatalogPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [priceRange, setPriceRange] = useState([0, 4000]);
   const [currentPage, setCurrentPage] = useState(0);
-  const [showModal, setShowModal] = useState(false); // Состояние для отображения модального окна
+  const [showModal, setShowModal] = useState(false);
+  const [user, setUser] = useState(null);
 
   const PRODUCTS_PER_PAGE = 9;
 
@@ -28,14 +30,20 @@ const CatalogPage = () => {
         ...doc.data(),
       }));
       setProducts(productsList);
-      setFilteredProducts(productsList); // Initial filtering
+      setFilteredProducts(productsList);
     };
 
     fetchProducts();
   }, []);
 
   useEffect(() => {
-    // Filter products based on category and price range
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
     let filtered = products.filter((product) => {
       const matchesCategory = selectedCategory
         ? product.category === selectedCategory
@@ -63,12 +71,14 @@ const CatalogPage = () => {
     <main className="relative max-w-[1600px] mx-auto px-[20px] pb-[68px] z-[1] pt-[80px] flex flex-col gap-[50px]">
       <CircleBackground className="right-[-15%] top-[250px]" />
       <CircleBackground className="left-[-15%] top-[750px]" />
-      <button
-        onClick={() => setShowModal(true)}
-        className="absolute top-4 right-4 bg-[#C3BE10] text-white px-4 py-2 rounded"
-      >
-        Открыть админ-панель
-      </button>
+      {user && user.email === "stepanov@mail.ru" ? (
+        <button
+          onClick={() => setShowModal(true)}
+          className="absolute top-4 right-4 bg-[#C3BE10] text-white px-4 py-2 rounded"
+        >
+          Открыть админ-панель
+        </button>
+      ) : null}
       <div className="flex gap-[180px] justify-between">
         <SidebarFilter
           categories={categories}

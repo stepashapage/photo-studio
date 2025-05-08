@@ -1,27 +1,18 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import CircleBackground from "../../../components/ui/circleBackground";
 
-const portfolioList = [
-  {
-    title: "14+",
-    description: "оценок в соц. сетях",
-  },
-  {
-    title: "5+",
-    description: "Лет опыта в индустрии",
-  },
-  {
-    title: "10+",
-    description: "Отзывов",
-  },
-  {
-    title: "12",
-    description: "товаров в каталонге",
-  },
+const portfolioStats = [
+  { title: "14+", description: "оценок в соц. сетях" },
+  { title: "5+", description: "Лет опыта в индустрии" },
+  { title: "10+", description: "Отзывов" },
+  { title: "12", description: "товаров в каталоге" },
 ];
 
-const portfolioList2 = [
+const portfolioItems = [
   {
     id: 0,
     title: "Новогодние сувениры",
@@ -78,36 +69,59 @@ const portfolioList2 = [
   },
 ];
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.15, ease: "easeOut" },
+  }),
+};
+
 const Portfolio = () => {
   return (
-    <main className="max-w-[1600px] mx-auto px-[20px] z-[1] pt-[50px]">
-      <section className="relative w-full grid grid-cols-3 gap-[26px]">
-        <CircleBackground className="top-[70%] left-[-25%]" />
-        <CircleBackground className="top-[20%] right-[-25%]" />
-        {portfolioList2.map((item, i) => (
-          <div className="relative w-[487px] h-[487px]" key={i}>
+    <main className="max-w-[1400px] mx-auto px-6 py-16 relative z-10">
+      {/* Фоновые круги */}
+      <CircleBackground className="absolute top-[70%] left-[-15%] opacity-10 pointer-events-none" />
+      <CircleBackground className="absolute top-[20%] right-[-15%] opacity-10 pointer-events-none" />
+
+      {/* Портфолио с карточками */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-24 text-gray-900">
+        {portfolioItems.map((item, i) => (
+          <motion.div
+            key={item.id}
+            custom={i}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+            className="relative rounded-lg overflow-hidden shadow-lg cursor-pointer group"
+            style={{ aspectRatio: "1 / 1" }}
+          >
             <Image
               src={item.img}
-              alt="photo"
-              width={400}
-              height={400}
-              className="w-[487px] h-[487px] object-cover z-[0]"
+              alt={item.title}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              priority={i < 3}
             />
-            <div className="absolute top-[0] left-[0] w-[487px] h-[487px] bg-[#171717] bg-opacity-[0.4]"></div>
-            <div className="flex flex-col gap-[15px] z-[1] absolute bottom-[0] left-[0] bg-[#EDBC5A] bg-opacity-[0.6] px-[19px] py-[16px]">
-              <h1 className="font-semiBold text-[24px] leading-[125%] text-[#fff]">
+            <div className="absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-500 group-hover:bg-opacity-60" />
+            <div className="absolute bottom-0 left-0 right-0 px-6 py-6 bg-gradient-to-t from-black/70 to-transparent">
+              <h3 className="text-white text-[22px] font-semibold mb-2 leading-[1.2]">
                 {item.title}
-              </h1>
-              <h1 className="font-medium text-[18px] leading-[125%] text-[#fff]">
+              </h3>
+              <p className="text-gray-300 text-[14px] leading-[1.5] max-w-[90%]">
                 {item.desc}
-              </h1>
+              </p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </section>
-      <section className="relative w-full flex gap-[100px] items-center justify-between pt-[115px] relative">
-        {portfolioList.map((item, i) => (
-          <div className="flex flex-col gap-[25px] items-center" key={i}>
+
+      {/* Статистика с крупным шрифтом */}
+      <section className="relative w-full flex gap-[100px] items-center justify-between relative">
+        {portfolioStats.map((item, i) => (
+          <div className="flex flex-col gap-[0px] items-center" key={i}>
             <h1 className="font-regular text-[120px] leading-[auto]">
               {item.title}
             </h1>

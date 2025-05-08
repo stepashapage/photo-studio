@@ -58,7 +58,7 @@ const CartItems = ({ items, clearCart }) => {
                             : "1px solid #EDBC5A",
                         cursor: item.quantity === 1 ? "not-allowed" : "pointer",
                       }}
-                      className="h-[30px] w-[30px] bg-[#fff] rounded-[10px] flex justify-center items-center"
+                      className="h-[30px] w-[30px] bg-transparrent rounded-[10px] flex justify-center items-center "
                       disabled={item.quantity === 1}
                     >
                       -
@@ -68,7 +68,7 @@ const CartItems = ({ items, clearCart }) => {
                     </span>
                     <button
                       onClick={() => increaseQuantity(item)}
-                      className="h-[30px] w-[30px] bg-[#fff] text-[#EDBC5A] border border-[#EDBC5A] rounded-[10px] flex justify-center items-center"
+                      className="h-[30px] w-[30px] bg-transparrent text-[#EDBC5A] border border-[#EDBC5A] rounded-[10px] flex justify-center items-center"
                     >
                       +
                     </button>

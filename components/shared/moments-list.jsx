@@ -38,7 +38,7 @@ export const MomentsList = () => {
   };
 
   return (
-    <div className="flex flex-col gap-[30px] w-full pb-[100px]">
+    <div className="flex flex-col gap-[30px] w-full ">
       {list.map((item) => (
         <div key={item.id} className="relative">
           <div

@@ -20,13 +20,13 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="relative"
         >
-          <Image
+          {/* <Image
             src="/SuperToroid-Black-Matte2.svg"
             alt="arrow"
             width={750}
             height={780}
             className="absolute left-[0%] top-[0%] w-[365px] h-[322px]"
-          />
+          /> */}
           <Title
             text="ПОЧЕМУ"
             strong=""

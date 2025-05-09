@@ -106,7 +106,7 @@ const Portfolio = () => {
               priority={i < 3}
             />
             <div className="absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-500 group-hover:bg-opacity-60" />
-            <div className="absolute bottom-0 left-0 right-0 px-6 py-6 bg-gradient-to-t from-black/70 to-transparent">
+            <div className="absolute bottom-0 left-0 right-0 px-6 py-6 bg-gradient-to-t from-black/70 to-transparent ">
               <h3 className="text-white text-[22px] font-semibold mb-2 leading-[1.2]">
                 {item.title}
               </h3>
